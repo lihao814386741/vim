@@ -1,0 +1,5 @@
+AF_INET
+connect
+raw_input
+socket
+SOCK_STREAM

@@ -1,0 +1,149 @@
+
+"Basic Configuration
+set showmatch
+set smartindent
+set tabstop=4
+set textwidth=80
+set scrolljump=10
+set shiftwidth=4
+set softtabstop=4
+"Tabs are spaces, not tabs
+"set expandtab
+"Puts new vsplit windows to the right of the current
+set splitright
+" Puts new split windows to the bottom of the current
+set splitbelow
+" Show list instead of just completing
+set wildmenu
+" Command <Tab> completion, list matches, then longest common part, then all.
+set wildmode=list:longest,full
+syntax on 
+	
+
+
+
+"Configure Color of VIM
+colorscheme slate
+set background=dark
+match ErrorMsg /\%>80v.\+/
+
+"Set Status Line 
+set nu
+set statusline=%F%m%r\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v]\ [LEN=%L]\ [ASCII=\%03.3b]
+set laststatus=2
+
+"this line is to highlight the cursor line.
+"set cursorline
+"highlight Cursorline guibg=lightblue ctermbg=lightblue cterm=NONE
+
+
+
+
+"Include Configuration of Latex
+source ~/.vim/vim/latex/latex.vim
+source ~/.vim/vim/python/python.vim
+"source ./c/c.vim
+
+
+"Abbreviations 
+"source ~/Program/etc/vim/abbreviations.vim
+
+"Map keys. 
+"Keys 
+"	<bs>
+"	<tab>
+"	<cr> <enter> <return>
+"	<esc>
+"	<space>
+"	<up> <down> <left> <right>
+"	<f1> - <f12>
+"	<insert>
+"	<del>
+"	<home>
+"	<End>
+"	<pageup>
+"	<pagedown>
+"	nmap 
+"	imap 
+"	vmap
+"	map
+"		
+"
+"imap <> 123
+"inoremap <c-s> 122
+inoremap <c-j> <right>
+"indent the code without leaving visual mode
+vnoremap < <gv
+vnoremap > >gv
+
+nmap <a-1> <esc>:JavaCorrect<cr>
+
+"Move to command. 
+"g; find the last change place.
+"gd find the defination of variant.
+"gf open the header file in c language.
+"m+a mark position a.
+"`+a find the position a.
+
+
+"Templates of new file
+
+
+
+"Dictionary 
+" <c-x> +
+"	<c+k> Complete words from the dictionaries
+"	<c+i> Words from the current and included files
+"
+
+"Make Session is very useful 
+"mksession
+"vim -S Session.vim
+
+
+
+"Auto Format Paragraph 
+"gqap format a paragraph
+"gwap format a paragraph and stay cursor on the 
+"last place
+
+
+"settings of SuperTab
+"let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
+"let g:SuperTabContextDefaultCompletionType="<c-x><c-k>"
+let g:SuperTabDefaultCompletionType="context"
+"let g:SuperTabLongestEnhanced=1
+"let g:SuperTabMappingForward="<tab>" 
+
+
+
+"settings of NERDTree
+set encoding=utf-8
+let NERDTreeDirArrows=0
+
+"setting of EasyMotion
+let g:EasyMotion_leader_key = '<Space>'
+map <Leader> <Plug>(easymotion-prefix)
+
+"setitings of Snipmate
+let g:snips_trigger_key='<F2>' 
+
+"setting of syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+execute pathogen#infect()
+
+"setup for eclim
+filetype plugin indent on
+
+
+autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
+
